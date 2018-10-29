@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BBA60DFC2177D3A3001A419D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA60DFB2177D3A3001A419D /* main.cpp */; };
+		BBA60E052177D452001A419D /* AllHotels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBA60E032177D452001A419D /* AllHotels.cpp */; };
+		BBC2D531217A6CB30087E7E1 /* SelectedHotel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D52F217A6CB30087E7E1 /* SelectedHotel.cpp */; };
+		BBC2D534217A6EC40087E7E1 /* Booking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D532217A6EC40087E7E1 /* Booking.cpp */; };
+		BBC4C2CE217FD5A600168605 /* History.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBC4C2CC217FD5A600168605 /* History.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +27,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB70109721792EBC005BC3B0 /* hotels.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = hotels.txt; sourceTree = "<group>"; };
 		BBA60DF82177D3A3001A419D /* booking_system */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = booking_system; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA60DFB2177D3A3001A419D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BBA60E032177D452001A419D /* AllHotels.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllHotels.cpp; sourceTree = "<group>"; };
+		BBA60E042177D452001A419D /* AllHotels.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllHotels.hpp; sourceTree = "<group>"; };
+		BBC2D52F217A6CB30087E7E1 /* SelectedHotel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SelectedHotel.cpp; sourceTree = "<group>"; };
+		BBC2D530217A6CB30087E7E1 /* SelectedHotel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SelectedHotel.hpp; sourceTree = "<group>"; };
+		BBC2D532217A6EC40087E7E1 /* Booking.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Booking.cpp; sourceTree = "<group>"; };
+		BBC2D533217A6EC40087E7E1 /* Booking.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Booking.hpp; sourceTree = "<group>"; };
+		BBC4C2CC217FD5A600168605 /* History.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = History.cpp; sourceTree = "<group>"; };
+		BBC4C2CD217FD5A600168605 /* History.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = History.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +58,7 @@
 				BBA60DF92177D3A3001A419D /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		BBA60DF92177D3A3001A419D /* Products */ = {
 			isa = PBXGroup;
@@ -58,6 +72,15 @@
 			isa = PBXGroup;
 			children = (
 				BBA60DFB2177D3A3001A419D /* main.cpp */,
+				BBA60E032177D452001A419D /* AllHotels.cpp */,
+				BBA60E042177D452001A419D /* AllHotels.hpp */,
+				BB70109721792EBC005BC3B0 /* hotels.txt */,
+				BBC2D52F217A6CB30087E7E1 /* SelectedHotel.cpp */,
+				BBC2D530217A6CB30087E7E1 /* SelectedHotel.hpp */,
+				BBC2D532217A6EC40087E7E1 /* Booking.cpp */,
+				BBC2D533217A6EC40087E7E1 /* Booking.hpp */,
+				BBC4C2CC217FD5A600168605 /* History.cpp */,
+				BBC4C2CD217FD5A600168605 /* History.hpp */,
 			);
 			path = booking_system;
 			sourceTree = "<group>";
@@ -118,6 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA60E052177D452001A419D /* AllHotels.cpp in Sources */,
+				BBC2D534217A6EC40087E7E1 /* Booking.cpp in Sources */,
+				BBC4C2CE217FD5A600168605 /* History.cpp in Sources */,
+				BBC2D531217A6CB30087E7E1 /* SelectedHotel.cpp in Sources */,
 				BBA60DFC2177D3A3001A419D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +267,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"GLIBCXX_DEBUG=1",
+					"GLIBCXXDEBUGPEDANTIC=1",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,6 +280,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"GLIBCXX_DEBUG=1",
+					"GLIBCXXDEBUGPEDANTIC=1",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
