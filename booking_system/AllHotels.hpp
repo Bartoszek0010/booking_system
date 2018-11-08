@@ -18,8 +18,8 @@ using namespace std;
 
 class AllHotels{
 private:
-    vector<string> hotels_names{"Royal Ambert","Palace","Hilton","Gromada","Italio"};
-    vector<string> hotels_city{"London","Berlin","New York","Warsaw","Rome"};
+    vector<string> hotels_names{"Royal_Ambert","Palace","Hilton","Gromada","Italio"};
+    vector<string> hotels_city{"London","Berlin","New_York","Warsaw","Rome"};
     vector<int> hotels_price{100,150,234,70,122};
     vector<int> hotels_stars{4,5,5,3,4};
     vector<int> hotels_places{300,345,555,100,23};

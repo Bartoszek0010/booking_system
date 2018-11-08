@@ -238,7 +238,7 @@ void allHotelsMenuAction(AllHotels &list, int &actual_stage, vector<int> &actual
     cout<<"Price per person:  "<<list.getHotelsPrice(opInt)<<endl;
     cout<<"Free rooms:  "<<list.getHotelsPlaces(opInt)<<endl<<endl;
     cout<<"To book this hotel press 1, to back to Menu press 0."<<endl;
-    op=getInput();
+    op = getInput();
     if(op == '1'){
         bookingHotel(list, actual_stage, actualList, opInt, hotel, book, history);
         
