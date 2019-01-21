@@ -42,8 +42,8 @@ void printAllHotelsMenu(AllHotels list){
     }
 }
 // function to input number of hotel or sth
-char getInput(){
-    char c;
+string getInput(){
+    string c;
     cin>>c;
     return c;
 }
@@ -124,28 +124,29 @@ void printFoundHotelsPrice(AllHotels list, int price, vector<int> &actualList){
 /////////
 void firstMenuAction(AllHotels list, int &actual_stage, vector<int> &actualList){
     printFirstMenu();
-    char op = getInput();
-    switch(op){
-        case '1':
+    string op = getInput();
+    int opt = stoi(op);
+    switch(opt){
+        case 1:
             actual_stage = allHotelsMenu;
             break;
-        case '2':
+        case 2:
             actual_stage = findNameHotel;
             actualList.clear();
             break;
-        case '3':
+        case 3:
             actual_stage = findCityHotel;
             actualList.clear();
             break;
-        case '4':
+        case 4:
             actual_stage = findStarsHotel;
             actualList.clear();
             break;
-        case '5':
+        case 5:
             actual_stage = findPriceHotel;
             actualList.clear();
             break;
-        case '6':
+        case 6:
             actual_stage = reservations;
             actualList.clear();
             break;
@@ -201,49 +202,57 @@ void bookingHotel(AllHotels &list, int &actual_stage, vector<int> &actualList, i
 }
 void chooseOrBook(AllHotels &list, int &actual_stage, vector<int> &actualList, SelectedHotel &hotel, Booking &book, History &history){
     cout<<"Choose a hotel or press 0 to back to Menu."<<endl;
-    char op = getInput();
+    string op = getInput();
+    int opInt = stoi(op) - 1;
     int pos; // this is position from hotels vectors
-    if(op == '0'){
+    if(op == "0"){
         actual_stage = firstMenu;
         return;
     } else {
-        pos = actualList.at(int(op) - 49); // -49 because it's char
-        cout<<"INNFORMATION ABOUT HOTEL:"<<endl;
-        cout<<"Name:  "<<list.getHotels(pos)<<endl;
-        cout<<"City:  "<<list.getHotelsCity(pos)<<endl;
-        cout<<"Stars:  "<<list.getHotelsStars(pos)<<endl;
-        cout<<"Price per person:  "<<list.getHotelsPrice(pos)<<endl;
-        cout<<"Free rooms:  "<<list.getHotelsPlaces(pos)<<endl<<endl;
-        cout<<"To book this hotel press 1, to back to Menu press 0."<<endl;
+        
+        if(opInt < actualList.size()){
+            pos = actualList.at(opInt);
+            cout<<"INNFORMATION ABOUT HOTEL:"<<endl;
+            cout<<"Name:  "<<list.getHotels(pos)<<endl;
+            cout<<"City:  "<<list.getHotelsCity(pos)<<endl;
+            cout<<"Stars:  "<<list.getHotelsStars(pos)<<endl;
+            cout<<"Price per person:  "<<list.getHotelsPrice(pos)<<endl;
+            cout<<"Free rooms:  "<<list.getHotelsPlaces(pos)<<endl<<endl;
+            cout<<"To book this hotel press 1, to back to Menu press 0."<<endl;
+        } else {
+            actual_stage = firstMenu;
+            return;
+        }
         actualList.clear(); // delete postions from temporary list
     }
     op = getInput();
-    if(op == '1'){
+    if(op == "1"){
         bookingHotel(list, actual_stage, actualList, pos, hotel, book, history);
         
-    } else if(op == '0'){
+    } else if(op == "0"){
         actual_stage = firstMenu;
     }
     actual_stage = firstMenu;
 }
 void allHotelsMenuAction(AllHotels &list, int &actual_stage, vector<int> &actualList, SelectedHotel &hotel, Booking &book, History &history){
-    cout<<hotel.getHotelCity()<<endl;
+    //cout<<hotel.getHotelCity()<<endl;
     printAllHotelsMenu(list);
-    char op = getInput();
-    int opInt = int(op) - 49; // -49 because it's char
-    cout<<"INNFORMATION ABOUT HOTEL:"<<endl;
-    cout<<"Name:  "<<list.getHotels(opInt)<<endl;
-    cout<<"City:  "<<list.getHotelsCity(opInt)<<endl;
-    cout<<"Stars:  "<<list.getHotelsStars(opInt)<<endl;
-    cout<<"Price per person:  "<<list.getHotelsPrice(opInt)<<endl;
-    cout<<"Free rooms:  "<<list.getHotelsPlaces(opInt)<<endl<<endl;
-    cout<<"To book this hotel press 1, to back to Menu press 0."<<endl;
-    op = getInput();
-    if(op == '1'){
-        bookingHotel(list, actual_stage, actualList, opInt, hotel, book, history);
-        
-    } else if(op == '0'){
-        actual_stage = firstMenu;
+    string op = getInput();
+    int opInt = stoi(op) - 1;
+    if(opInt < list.getAmount()){ // check if our choice is lower than amount of hotels
+        cout<<"INNFORMATION ABOUT HOTEL:"<<endl;
+        cout<<"Name:  "<<list.getHotels(opInt)<<endl;
+        cout<<"City:  "<<list.getHotelsCity(opInt)<<endl;
+        cout<<"Stars:  "<<list.getHotelsStars(opInt)<<endl;
+        cout<<"Price per person:  "<<list.getHotelsPrice(opInt)<<endl;
+        cout<<"Free rooms:  "<<list.getHotelsPlaces(opInt)<<endl<<endl;
+        cout<<"To book this hotel press 1, to back to Menu press 0."<<endl;
+        op = getInput();
+        if(op == "1"){
+            bookingHotel(list, actual_stage, actualList, opInt, hotel, book, history);
+        } else if(op == "0"){
+            actual_stage = firstMenu;
+        }
     }
     actual_stage = firstMenu;
 }
